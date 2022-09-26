@@ -15,11 +15,8 @@
 
 <%= form_for(@article) do |f| %>
     <%= f.label :title %>
-    <%= f.text_field :title, class: 'form-control', autofocus: true %>
-    <p>
-    <%= f.label :body %>
-    <p>
-    <%= f.text_area :body, rows: 10, cols: 70, class: 'form-control' %>
-    <p>
+    <%= f.text_field :title, class: 'form-control', autofocus: true %><p>
+    <%= f.label :body %><p>
+    <%= f.text_area :body, rows: 10, cols: 70, class: 'form-control' %><p>
     <%= f.submit %>
 <% end %> 
