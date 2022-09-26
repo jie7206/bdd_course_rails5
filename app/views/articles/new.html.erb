@@ -1,40 +1,19 @@
-<h3 class='text-center'>Adding New Article</h3>
-
-<div class='row'>
-    <div class='col-md-12'>
-        <%= form_for(@article, :html => {class: "form-horizontal", role: "form"}) do |f| %>
-            <% if @article.errors.any? %>
-                <ul>
-                    <% @article.errors.full_messages.each do |msg| %>
-                        <li>
-                            <%= msg %>
-                        </li>
-                    <% end %>
-                </ul>
-            <% end %> 
-            <div class='form-group'>
-                <div class='control-label col-md-1'>
-                    <%= f.label :title %>
-                </div>
-                <div class='col-md-11'>
-                    <%= f.text_field :title, class: 'form-control', placeholder: 'Title of article', autofocus: true %>
-                </div>
-            </div>
-            <br>
-            <div class='form-group'>
-                <div class='control-label col-md-1'>
-                    <%= f.label :body %>
-                </div>
-                <div class='col-md-11'>
-                    <%= f.text_area :body, rows: 10, class: 'form-control', placeholder: 'Body of article' %>
-                </div>
-            </div>
-            <div class='form-group'>
-                <div class='col-md-offset-1 col-md-11'>
-                    <br>
-                    <%= f.submit class: 'btn btn-primary btn-lg pull-right' %>
-                </div>
-            </div>
+<h3>Adding New Article</h3>
+<p><%= @article.inspect %></p>
+<% if @article.errors.any? %>
+    <ul>
+        <% @article.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
         <% end %>
-    </div>
-</div>
+    </ul>
+<% end %>
+<%= form_for(@article) do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control', autofocus: true %>
+    <p>
+    <%= f.label :body %>
+    <p>
+    <%= f.text_area :body, rows: 10, cols: 100, class: 'form-control' %>
+    <p>
+    <%= f.submit %>
+<% end %> 

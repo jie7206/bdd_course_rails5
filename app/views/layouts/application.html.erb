@@ -11,26 +11,8 @@
   </head>
 
   <body>
-    <header role="banner">
-      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <%= link_to "💒 Home", root_path, class: "navbar-brand" %>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <% flash.each do |key, message| %>
-            <div class="text-center alert alert-<%= key == 'notice'? 'success': 'danger' %>">
-              <%= message %>
-            </div>
-          <% end %>
-          <%= yield %>
-        </div>
-      </div>
-    </div>
+    <div style="margin:1em"><%= link_to "💒 Home", root_path %></div>
+    <%= render 'shared/flashes' %> 
+    <%= yield %>
   </body>
 </html>
