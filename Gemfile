@@ -27,6 +27,8 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+# About Bootstrap
+gem 'bootstrap', '~> 5.1.3'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 
