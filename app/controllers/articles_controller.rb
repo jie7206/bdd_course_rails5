@@ -12,12 +12,15 @@ class ArticlesController < ApplicationController
   
   def create
     @article = Article.new(article_params)
-    if @article.save
-      flash[:notice] = "Article has been created"
-      redirect_to articles_path
-    else
-      flash.now[:notice] = "Article has not been created"
-      render :new
+    respond_to do |format|
+      if @article.save
+        format.html { redirect_to articles_path, notice: "Article has been created." }
+        format.json { render :show, status: :created, location: @article }
+      else
+        flash.now[:notice] = "Article has not been created."
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @article.errors, status: :unprocessable_entity }
+      end
     end
   end
 

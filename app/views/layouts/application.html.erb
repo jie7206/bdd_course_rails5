@@ -11,7 +11,11 @@
   </head>
 
   <body>
-    <div style="margin:1em"><%= link_to "💒 Home", root_path %></div>
+    <div style="margin:1em">
+      <%= link_to "💒 Home", root_path %> |
+      <%= link_to "Article", articles_path %> |
+      <%= link_to "Post", posts_path %>
+    </div>
     <%= render 'shared/flashes' %> 
     <%= yield %>
   </body>
