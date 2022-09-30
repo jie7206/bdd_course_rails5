@@ -1,1 +1,18 @@
-<%= link_to "New Article", new_article_path %>
+<%= link_to "New Article", new_article_path, style: "font-weight:bold;display:block;margin-bottom:1em" %>
+<style>
+table.imagetable {font-family: verdana,arial,sans-serif;font-size:11px;color:#333333;border-width: 1px;border-color: #999999;border-collapse: collapse;}
+table.imagetable th {background:#b5cfd2 url('cell-blue.jpg');border-width: 1px;padding: 8px;border-style: solid;border-color: #999999;}
+table.imagetable td {background:#dcddc0 url('cell-grey.jpg');border-width: 1px;padding: 8px;border-style: solid;border-color: #999999;}
+</style>
+<table class="imagetable">
+    <tr>
+        <th>标题</th>
+        <th>内容</th>
+    </tr>
+    <% @articles.each do |article| %>
+    <tr>
+        <td><%= link_to article.title, article_path(article) %></td>
+        <td><%= truncate(article.body, length: 100) %></td>
+    </tr>    
+    <% end %>
+</table>
