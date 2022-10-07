@@ -1,0 +1,7 @@
+<h1 class="article-detail-title"><%= @article.title %></h1>
+<div class="article-detail-date" id="article-date">
+    <%= @article.created_at.strftime("%b %d %Y") %>
+</div>
+<div class="article-detail-body" id="article-body">
+    <%= @article.body %>
+</div>
