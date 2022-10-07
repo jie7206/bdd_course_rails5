@@ -4,15 +4,19 @@ table.imagetable {font-family: verdana,arial,sans-serif;font-size:11px;color:#33
 table.imagetable th {background:#b5cfd2 url('cell-blue.jpg');border-width: 1px;padding: 8px;border-style: solid;border-color: #999999;}
 table.imagetable td {background:#dcddc0 url('cell-grey.jpg');border-width: 1px;padding: 8px;border-style: solid;border-color: #999999;}
 </style>
-<table class="imagetable">
-    <tr>
-        <th>标题</th>
-        <th>内容</th>
-    </tr>
-    <% @articles.each do |article| %>
-    <tr>
-        <td><%= link_to article.title, article_path(article) %></td>
-        <td><%= truncate(article.body, length: 100) %></td>
-    </tr>    
-    <% end %>
-</table>
+<% if @articles.empty? %>
+    <h1 id="no-articles">No Articles Created</h1>
+<% else %>
+    <table class="imagetable">
+        <tr>
+            <th>标题</th>
+            <th>内容</th>
+        </tr>
+        <% @articles.each do |article| %>
+        <tr>
+            <td><%= link_to article.title, article_path(article) %></td>
+            <td><%= truncate(article.body, length: 100) %></td>
+        </tr>    
+        <% end %>
+    </table>
+<% end %>
